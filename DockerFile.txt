@@ -1,0 +1,13 @@
+Пример Dockerfile
+
+FROM Ubuntu:15.04
+COPY ./app
+RUN make /app
+CMD python /app/app/py
+
+Слои:
+
+-FROM создает слой из образа Docker Ubuntu:15.05
+-COPY добавляет файлы из текущей директории Dockerfile
+-RUN использует make для создания приложения
+-CMD определяет команду, запускаемую в контейнере

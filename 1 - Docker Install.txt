@@ -1,0 +1,35 @@
+Установка Docker
+Подготовка к установке:
+
+Удаление предыдущих версий
+
+yum remove -y docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+
+Установка Docker CE
+----------------------------------------
+1. Добавление утилит, необходимых для установки Docker:
+
+yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+----------------------------------------
+2. Добавление репозитория Docker:
+
+yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+----------------------------------------
+3. Установка Docker CE:
+
+yum -y install docker-ce
+----------------------------------------
+4. Запуск и настройка автозапуска Docker:
+
+systemctl start docker && sudo systemctl enable docker

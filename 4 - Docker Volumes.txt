@@ -1,0 +1,20 @@
+Запуск контейнера nginx-volume1
+
+docker container run -d \
+ --name nginx-volume1 \
+ --mount type=volume,source=html-volume,target=/usr/share/nginx/html/ \
+ nginx
+----------------------------------
+Запуск контейнера nginx-volume2
+
+docker container run -d \
+ --name nginx-volume2 \
+ -v html-volume:/usr/share/nginx/html/ \
+ nginx
+----------------------------------
+Запуск контейнера nginx-volume3
+
+docker container run -d \
+  --name=nginx-volume3 \
+  --mount source=html-volume,target=/usr/share/nginx/html,readonly \
+  nginx
